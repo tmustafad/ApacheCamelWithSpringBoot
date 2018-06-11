@@ -13,24 +13,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "amqp")
 public class AMQPConfiguration {
-	/**
-	 * AMQ service host
-	 */
+	
 	private String host;
 
-	/**
-	 * AMQ service port
-	 */
+	
 	private Integer port;
 
-	/**
-	 * AMQ username
-	 */
+	
 	private String username;
 
-	/**
-	 * AMQ password
-	 */
 	private String password;
 
 	public AMQPConfiguration() {
