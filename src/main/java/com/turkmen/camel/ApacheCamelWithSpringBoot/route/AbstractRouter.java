@@ -21,15 +21,19 @@ public class AbstractRouter  extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		
-		restConfiguration().component("servlet").bindingMode(RestBindingMode.json);
-		rest("/"+urlName+"").produces("application/json").get("{name}").route().transform()
-		.simple(" ${header.name}, is consumed").to(ExchangePattern.InOnly, queueName)
-		.process(exchange -> {
-			exchange.getIn().setBody("{'success':'success'}");
-			exchange.getIn().setHeader(Exchange.HTTP_RESPONSE_CODE, 200);
-			exchange.getIn().setHeader(Exchange.CONTENT_TYPE, "application/json");
-		});
+//		restConfiguration().component("servlet").bindingMode(RestBindingMode.json);
+//		rest("/"+urlName+"").description(urlName+" service!").produces("application/json").get("{name}").route().transform()
+//		.simple("${header.name}, is consumed").process(exchange ->{
+//			exchange.getIn().setHeader(Exchange.HTTP_RESPONSE_CODE, 200);
+//			exchange.getIn().setHeader(Exchange.CONTENT_TYPE, "application/json");
+//		}) ;
 		
+		restConfiguration().component("servlet").bindingMode(RestBindingMode.json);
+		rest("/"+urlName+"").description(urlName+" service!").produces("application/json").get("{name}").route().transform()
+		.simple("${header.name}, is consumed").to(ExchangePattern.InOnly, queueName);
+		
+		
+	
 	}
 
 	
