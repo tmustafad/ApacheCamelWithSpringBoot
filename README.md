@@ -21,6 +21,10 @@ Because the incoming requests are being directed to ActiveMQ, you need to have a
 
 In Pom.xml you can find all required dependencies , once you install the project with maven, just start it as springboot app and your rest endpoints start to serve immediately on embededed tomcat at the port 8080 unless you change it .
 
+## The Endpoints to reach after running the project
+**localhost:8080/user/{name} ==>* This rest endpoint is for User microservice which is consuming from **User** topic
+**localhost:8080/login/{name}==>*This rest endpoint is for Login microservice which is consuming from **Login** topic
+
 ## Running the tests
 
 Under test package you can find the **RouterTest** class where a **TestRestTemplate** is injected to reach and test the endpoints 
