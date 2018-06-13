@@ -2,15 +2,14 @@
 
 Can Apache Camel be used as a **smart endpoint** in microservices architecture? I think yes, In this project Apache Camel is used for exposing rest endpoints and directing the requests to relevant Topics or Queues which are subscribed by relevant microservices.
 
-The intention of this project is exposing ** rest endpoints** with Camel RestDSL and direct these requests  to related queues in ActiveMQ  by using  **RouteBuilder** .
-
-For connecting ActiveMQ ,the **AMQP** protocol is used via **Apache Qpid** libary. You can find how the properties set to connect to ActiveMQ in config package together with **application.properties** file.
-
-
 
 ## The Goal
 
 The goal of this project is to understand the capabilities of Apache Camel on how it can perform as a **smart endpoint**. For achieving this smartness a routing mechanism is built under **route** package where you can find a abstract router class extending **RouteBuilder** and two different routers extending this abstract class . You can think of these two extending classes as single ,independent microservices.Once the router directs messages to relevant ActiveMQ queues, the service who is subscribed to these topics , get and  use the messages.
+
+Another intention of this project is exposing **rest endpoints** with Camel RestDSL and direct these requests  to related queues in ActiveMQ  by using  **RouteBuilder** .
+
+For connecting ActiveMQ ,the **AMQP** protocol is used via **Apache Qpid** libary. You can find how the properties set to connect to ActiveMQ in config package together with **application.properties** file.
 
 ### Prerequisites
 
